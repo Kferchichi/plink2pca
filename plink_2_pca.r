@@ -103,6 +103,11 @@ d <- ggplot(pca, aes(PC1, PC5, col = Location, shape = Region)) + geom_point(siz
 d <- d + scale_colour_manual(values = c("#99cc00", "#ffcc00", "#9933ff", "#f00000", "#0000ff", "#ff6633", "#00cccc", "#ff99cc", "#666666", "#993300", "#ff00cc"), guide = "none") 
 d <- d  + theme_bw() + theme(text = element_text(size = 17)) + theme(legend.position = "none")
 d + xlab(paste0("PC1 (", signif(pve$pve[1], 3), "%)")) + ylab(paste0("PC5 (", signif(pve$pve[5], 3),"%)"))
+#install gridextra and cowplot packages and load the required libraries
+install.packages("gridExtra")
+install.packages("cowplot")
+library("gridExtra")
+library("cowplot")
 #then run the following function
 grid.arrange(d, b, c, f, ncol = 2, 
 +              layout_matrix = cbindividual(c(1,1,1), c(2,3,4)))
